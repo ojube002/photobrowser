@@ -61,7 +61,7 @@ function PhotoDetail() {
     return () => {
       controller.abort();
     }
-  }, [isFetched]);
+  }, [isFetched, dispatch]);
 
   // Find photo from photos and set to state
   useEffect(() => {
@@ -95,7 +95,7 @@ function PhotoDetail() {
             </Link>
           </div>
           <div className="d-flex">
-            <img src={photo.url} />
+            <img alt={photo.title} src={photo.url} />
             <div className='ml'>
               <Title>{photo.title}</Title>
               <hr />

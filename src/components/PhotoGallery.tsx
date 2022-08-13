@@ -70,7 +70,7 @@ function PhotoGallery() {
         return () => {
             controller.abort();
         }
-    }, [isFetched]);
+    }, [isFetched, dispatch]);
 
     const previousAlbum = () => {
         if (albumIndex > 0) {
