@@ -32,6 +32,29 @@ const GalleryImagesContainer = styled.div`
         box-shadow: 3px 3px 3px rgb(0 0 0 / 15%);
         
     }
+
+    @media screen and (max-width: 1200px) {
+        padding: 20px;
+    }
+    @media screen and (max-width: 768px) {
+        padding-left: 30px;
+    }
+`
+
+const FilterContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    @media screen and (max-width: 1200px) {
+        padding: 20px;
+    }
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-left: 30px;
+    }
 `
 
 
@@ -94,12 +117,14 @@ function PhotoGallery() {
 
     return (
         <>
-            <div className="d-flex align-center justify-end mb-4">
-                <div className='mr-auto'>AlbumID: {availableAlbumIds[albumIndex]}</div>
-                <div className="d-flex mr-1">Check another photo album:</div>
-                <Button disabled={albumIndex === 0} onClick={() => previousAlbum()} className='mb-0 mr-1'>Previous</Button>
-                <Button disabled={albumIndex === (availableAlbumIds.length - 1)} onClick={() => nextAlbum()} className='mb-0'>Next</Button>
-            </div>
+            <FilterContainer>
+                <div className='d-flex align-center'>AlbumID: {availableAlbumIds[albumIndex]}</div>
+                <div className='d-flex align-center'>
+                    <div className="d-flex mr-1">Check another photo album:</div>
+                    <Button disabled={albumIndex === 0} onClick={() => previousAlbum()} className='mb-0 mr-1'>Previous</Button>
+                    <Button disabled={albumIndex === (availableAlbumIds.length - 1)} onClick={() => nextAlbum()} className='mb-0'>Next</Button>
+                </div>
+            </FilterContainer>
             <Row>
                 <GalleryImagesContainer>
                     {

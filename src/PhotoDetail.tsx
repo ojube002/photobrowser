@@ -18,6 +18,14 @@ const Container = styled.div`
   max-width: 1340px;
   padding-top: 70px;
   padding-bottom: 30px;
+
+
+  @media screen and (max-width: 768px) {
+    max-width: 90%;
+     img {
+      width: 100%;
+      height: 100%;
+  }
 `
 
 const Title = styled.h1`
@@ -28,7 +36,15 @@ const Title = styled.h1`
     font-size: 3rem;
 }
 `
-
+const DetailsContainer = styled.div`
+  display: flex;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+     img {
+      margin-bottom: 30px;
+     }
+  }
+`
 
 function PhotoDetail() {
   const { isFetched, loading, photos } = useSelector((state: IReducerRoot) => state.photos);
@@ -94,7 +110,7 @@ function PhotoDetail() {
               <Button>Go back to gallery</Button>
             </Link>
           </div>
-          <div className="d-flex">
+          <DetailsContainer className="d-flex">
             <img alt={photo.title} src={photo.url} />
             <div className='ml'>
               <Title>{photo.title}</Title>
@@ -104,7 +120,7 @@ function PhotoDetail() {
               <p>Thumbnail url: {photo.thumbnailUrl}</p>
               <p>Url: {photo.url}</p>
             </div>
-          </div>
+          </DetailsContainer>
         </>
       }
     </Container>
