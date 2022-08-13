@@ -11,7 +11,7 @@ const GalleryImg = styled.img`
 `
 
 function GalleryImage({ photo }: IGalleryImage) {
-    const { id, title, url, thumbnailUrl } = photo;
+    const { id, title, thumbnailUrl } = photo;
     return (
         <div className='image-container'>
             <Link to={`/photo/${id}`}>
