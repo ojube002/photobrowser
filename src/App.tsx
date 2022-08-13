@@ -1,25 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import PhotoGallery from 'components/PhotoGallery';
+
+const Container = styled.div`
+  margin: auto;
+  max-width: 1340px;
+  padding-top: 70px;
+  padding-bottom: 50px;
+`
+
+const Title = styled.h1`
+  font-size: 5rem;
+  text-align: center;
+  color: #565578;
+  text-shadow: #eee 3px 3px 3px;
+  margin-bottom: 100px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 3rem;
+    margin-bottom: 50px;
+}
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Title>Photobrowser</Title>
+
+      <PhotoGallery />
+
+    </Container>
   );
 }
 
