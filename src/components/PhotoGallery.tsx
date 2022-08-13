@@ -54,7 +54,7 @@ function PhotoGallery() {
         const controller = new AbortController();
         const signal = controller.signal;
 
-        fetch('http://jsonplaceholder.typicode.com/photos', { signal })
+        fetch('/api/photos', { signal })
             .then(response => response.json())
             .then(photos => {
                 dispatch(addPhotos(photos))
